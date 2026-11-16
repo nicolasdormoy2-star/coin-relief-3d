@@ -1,0 +1,31 @@
+[project]
+name = "coin3d"
+version = "0.1.0"
+description = "Coin photo(s) -> relief height maps -> real-scale textured 3D coin (.glb), by differentiable inverse rendering"
+readme = "README.md"
+license = { text = "MIT" }
+requires-python = ">=3.11"
+dependencies = [
+    "numpy",
+    "pillow",
+    "scipy",
+    "opencv-python-headless",
+    "trimesh",
+    "torch",
+]
+
+[project.optional-dependencies]
+dev = ["pytest"]
+
+[project.scripts]
+coin3d = "coin3d.cli:main"
+
+[build-system]
+requires = ["setuptools>=68"]
+build-backend = "setuptools.build_meta"
+
+[tool.setuptools.packages.find]
+include = ["coin3d*"]
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]
